@@ -142,7 +142,10 @@ function LotionStateMachine(opts: BaseApplicationConfig): Application {
         txValidators = protectValidators(txValidators)
         context = Object.assign({}, context, { validators: txValidators })
         try {
-          transactionHandlers.forEach(m => m(txState, tx, context))
+          const result = transactionHandlers.reduce((results, handler) => {
+            const currResult = handler(txState, tx, context)
+            return { ...results, ...currResult }
+          }, {})
           /**
            * tx was applied without error.
            * now make sure something was mutated.
@@ -154,7 +157,7 @@ function LotionStateMachine(opts: BaseApplicationConfig): Application {
              */
             muta.commit(txState)
             muta.commit(txValidators)
-            return {}
+            return result
           } else {
             throw new Error(
               'transaction must mutate state or validators to be valid'
