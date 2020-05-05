@@ -1,11 +1,10 @@
 {
-  "name": "lotion-state-machine",
+  "name": "@davvidess/lotion-state-machine",
   "version": "0.2.4",
-  "description": "",
   "main": "dist/lotion-state-machine.js",
   "scripts": {
     "test": "tsc && nyc -r text -r html tape test/*.js",
-    "publish": "tsc"
+    "prepublishOnly": "tsc"
   },
   "keywords": [],
   "author": "",
@@ -20,5 +19,18 @@
     "nyc": "^13.0.1",
     "tape": "^4.9.1",
     "typescript": "^3.2.2"
-  }
+  },
+  "directories": {
+    "example": "example",
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/davvidess/lotion-state-machine.git"
+  },
+  "bugs": {
+    "url": "https://github.com/davvidess/lotion-state-machine/issues"
+  },
+  "homepage": "https://github.com/davvidess/lotion-state-machine#readme",
+  "description": ""
 }
