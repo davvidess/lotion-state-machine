@@ -1,6 +1,6 @@
 {
   "name": "@davvidess/lotion-state-machine",
-  "version": "0.2.4",
+  "version": "0.2.5",
   "main": "dist/lotion-state-machine.js",
   "scripts": {
     "test": "tsc && nyc -r text -r html tape test/*.js",

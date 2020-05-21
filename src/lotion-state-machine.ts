@@ -198,7 +198,7 @@ function LotionStateMachine(opts: BaseApplicationConfig): Application {
           checkTransition(action.type)
 
           if (action.type === 'transaction') {
-            applyTx(nextState, action.data, nextContext)
+            return applyTx(nextState, action.data, nextContext)
           } else if (action.type === 'block') {
             /**
              * end block.
